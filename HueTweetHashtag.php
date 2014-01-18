@@ -14,6 +14,8 @@ $max_tweets = 5;
 //Set time interval for checking the Twitter hashtags
 $sleeptime = 10;
 
+$set_hashtag = "#iot";
+
 
 $url = 'http://'.$gatewayIP.'/api/'.$app_secret.'/lights/2/state';
 
@@ -90,7 +92,7 @@ updateLamp("{\"on\":false}");
 //When tweets exeed the threshold change the lamp color
 while(true) {
 	 
-	if(getTweets('#iot')==true) {
+	if(getTweets($set_hashtag)==true) {
 		updateLamp("{\"alert\":\"select\", \"hue\": 50000, \"sat\": 254}");
 	}
 
